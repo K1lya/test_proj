@@ -1,3 +1,3 @@
-import {MainPageAsync} from "./components/MainPage.async";
+import { MainPageAsync } from './components/MainPage.async';
 
-export {MainPageAsync as MainPage}
+export { MainPageAsync as MainPage };

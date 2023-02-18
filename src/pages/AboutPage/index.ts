@@ -1,3 +1,3 @@
-import {AboutPageAsync} from "./components/AboutPage.async";
+import { AboutPageAsync } from './components/AboutPage.async';
 
-export {AboutPageAsync as AboutPage}
+export { AboutPageAsync as AboutPage };
