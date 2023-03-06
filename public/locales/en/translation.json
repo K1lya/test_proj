@@ -1,8 +1,12 @@
 {
   "Главная": "Main",
   "О Сайте": "About",
+  "Ошибка": "Error",
   "Перевод": "Translate",
+  "Перезагрузка": "Refresh",
+  "Произошла непредвиденная ошибка": "Wake up, Neo. The error has you!",
   "Свернуть": "Toggle",
+  "Страница не найдена": "Page not found",
   "Тестовый пример": "Test Component",
   "Язык": "Lang"
 }

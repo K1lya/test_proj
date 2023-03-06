@@ -40,7 +40,7 @@ module.exports = {
     'react/jsx-max-props-per-line': [2, { maximum: 1 }],
     'no-underscore-dangle': 'off',
     'i18next/no-literal-string': ['error', { markupOnly: true }],
-    'max-len': ['error', { ignoreComments: true }],
+    'max-len': ['error', { ignoreComments: true, code: 90 }],
   },
   globals: {
     __IS_DEV__: true,
