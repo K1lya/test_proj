@@ -4,8 +4,11 @@ import { AboutPage } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 
 export enum AppRoutes {
+  // eslint-disable-next-line no-unused-vars
   MAIN = 'main',
+  // eslint-disable-next-line no-unused-vars
   ABOUT = 'about',
+  // eslint-disable-next-line no-unused-vars
   NOT_FOUND = 'not_found'
 }
 

@@ -4,8 +4,11 @@ import { Link, LinkProps } from 'react-router-dom';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {
+  // eslint-disable-next-line no-unused-vars
   PRIMARY = 'primary',
+  // eslint-disable-next-line no-unused-vars
   SECONDARY = 'secondary',
+  // eslint-disable-next-line no-unused-vars
   RED = 'red',
 }
 

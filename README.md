@@ -17,4 +17,5 @@ My test project
 - i18n
 - jest
 - linters
-- 
+- storybook
+- loki
