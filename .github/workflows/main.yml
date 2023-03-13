@@ -26,6 +26,10 @@ jobs:
         run: npm run lint-style
       - name: unit tests
         run: npm run test-unit
+      - name: build storybook
+        run: npm run build-storybook
+      - name: screenshots tests
+        run: npm run test-ui-ci
       - name: build production project
         run: npm run build-prod
 
