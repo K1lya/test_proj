@@ -20,16 +20,23 @@ jobs:
         run: npm install
       - name: linting typescript project
         run: npm run lint-ts
+        if: always()
       - name: linting es project
         run: npm run lint-es
+        if: always()
       - name: linting styles project
         run: npm run lint-style
+        if: always()
       - name: unit tests
         run: npm run test-unit
+        if: always()
       - name: build storybook
         run: npm run build-storybook
+        if: always()
       - name: screenshots tests
         run: npm run test-ui-ci
+        if: always()
       - name: build production project
         run: npm run build-prod
+        if: always()
 
