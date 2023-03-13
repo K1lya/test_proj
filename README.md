@@ -20,3 +20,4 @@ My test project
 - linters
 - storybook
 - loki
+- CI/CD
