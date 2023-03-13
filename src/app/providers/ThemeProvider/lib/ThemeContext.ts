@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-export enum Theme {
+export enum ThemeEnum {
   // eslint-disable-next-line no-unused-vars
   DARK = 'dark',
   // eslint-disable-next-line no-unused-vars
@@ -8,9 +8,9 @@ export enum Theme {
 }
 
 export interface ThemeContextProps {
-  theme?: Theme;
+  theme?: ThemeEnum;
   // eslint-disable-next-line no-unused-vars
-  setTheme?: (theme: Theme) => void;
+  setTheme?: (theme: ThemeEnum) => void;
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({});

@@ -1,20 +1,20 @@
 import {
   LOCAL_STORAGE_THEME_KEY,
-  Theme,
+  ThemeEnum,
   ThemeContext,
 } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { useContext } from 'react';
 
 export interface IUseThemeResult {
   toggleTheme: () => void;
-  theme: Theme;
+  theme: ThemeEnum;
 }
 
 export function useTheme(): IUseThemeResult {
   const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
-    const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
+    const newTheme = theme === ThemeEnum.LIGHT ? ThemeEnum.DARK : ThemeEnum.LIGHT;
     setTheme(newTheme);
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
   };

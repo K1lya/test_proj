@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import cls from './AppLink.module.scss';
 
-export enum AppLinkTheme {
+export enum AppLinkThemeEnum {
   // eslint-disable-next-line no-unused-vars
   PRIMARY = 'primary',
   // eslint-disable-next-line no-unused-vars
@@ -14,7 +14,7 @@ export enum AppLinkTheme {
 
 interface AppLinkProps extends LinkProps{
   className?: string;
-  theme?: AppLinkTheme;
+  theme?: AppLinkThemeEnum;
 }
 
 export const AppLink: FC<AppLinkProps> = (props) => {
@@ -23,7 +23,7 @@ export const AppLink: FC<AppLinkProps> = (props) => {
     className,
     children,
     to,
-    theme = AppLinkTheme.PRIMARY,
+    theme = AppLinkThemeEnum.PRIMARY,
     ...others
   } = props;
   return (

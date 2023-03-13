@@ -4,8 +4,8 @@ import {
 } from '../../src/shared/config/storybook/decorators/StyleDecorator';
 import {
   ThemeDecorator,
-} from '../../src/shared/config/storybook/decorators/Themedecorator';
-import { Theme } from '../../src/app/providers/ThemeProvider';
+} from '../../src/shared/config/storybook/decorators/ThemeDecorator';
+import { ThemeEnum } from '../../src/app/providers/ThemeProvider';
 import {
   RouterDecorator,
 } from '../../src/shared/config/storybook/decorators/RouterDecorator';
@@ -22,5 +22,5 @@ export const parameters = {
 
 // Decorators
 addDecorator(StyleDecorator);
-addDecorator(ThemeDecorator(Theme.LIGHT));
+addDecorator(ThemeDecorator(ThemeEnum.LIGHT));
 addDecorator(RouterDecorator);

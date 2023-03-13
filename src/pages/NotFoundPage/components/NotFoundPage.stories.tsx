@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/Themedecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { ThemeEnum } from 'app/providers/ThemeProvider';
 import React from 'react';
 import { NotFoundPage } from './NotFoundPage';
 
@@ -21,5 +21,5 @@ export const Light = Template.bind({});
 Light.args = {};
 
 export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator(ThemeEnum.DARK)];
 Dark.args = {};
