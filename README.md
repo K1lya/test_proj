@@ -16,6 +16,7 @@ My test project
 - css modules
 - i18n
 - jest
+- react testing library
 - linters
 - storybook
 - loki
