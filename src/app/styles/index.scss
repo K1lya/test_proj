@@ -3,11 +3,15 @@
 @import "./theme/dark";
 @import "./variables/global";
 
-.app {
+.app,
+.app_modal {
   font: var(--font-m);
-  background: var(--bg-color);
   color: var(--primary-color);
+}
+
+.app {
   min-height: 100vh;
+  background: var(--bg-color);
 }
 
 .content-page {

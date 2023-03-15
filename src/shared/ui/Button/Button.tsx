@@ -5,6 +5,7 @@ import cls from './Button.module.scss';
 export enum ButtonThemeEnum {
   // eslint-disable-next-line no-unused-vars
   CLEAR = 'clear',
+  CLEAR_INVERTED = 'clearInverted',
   OUTLINE = 'outline',
   BACKGROUND = 'background',
   BACKGROUND_INVERTED = 'backgroundInverted'

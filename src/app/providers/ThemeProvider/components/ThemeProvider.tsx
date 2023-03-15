@@ -5,8 +5,12 @@ const defaultTheme = localStorage.getItem(
   LOCAL_STORAGE_THEME_KEY,
 ) as ThemeEnum || ThemeEnum.DARK;
 
-const ThemeProvider: FC = ({ children }) => {
-  const [theme, setTheme] = useState<ThemeEnum>(defaultTheme);
+export interface ThemeProviderProps {
+  initialTheme?: ThemeEnum;
+}
+
+const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
+  const [theme, setTheme] = useState<ThemeEnum>(initialTheme || defaultTheme);
 
   const defaultProps = useMemo(() => ({
     theme,
