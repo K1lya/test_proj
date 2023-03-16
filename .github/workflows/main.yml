@@ -21,9 +21,6 @@ jobs:
       - name: linting typescript project
         run: npm run lint-ts
         if: always()
-      - name: linting es project
-        run: npm run lint-es
-        if: always()
       - name: linting styles project
         run: npm run lint-style
         if: always()
