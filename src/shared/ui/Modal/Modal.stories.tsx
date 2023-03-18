@@ -27,10 +27,7 @@ Primary.args = {
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
   isOpen: true,
-  children: `Lorem ipsum dolor sit amet, consectetur adipiscing 
-  elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-  aliqua. Ut enim ad minim veniam, quis`,
+  children: 'Lorem ipsum',
 
 };
-
 PrimaryDark.decorators = [ThemeDecorator(ThemeEnum.DARK)];
