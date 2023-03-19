@@ -27,7 +27,6 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
         type="text"
         className={cls.input}
         title={t('Пароль')}
-        autofocus
       />
       <Button
         className={cls.loginBtn}
