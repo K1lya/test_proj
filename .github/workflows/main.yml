@@ -18,8 +18,8 @@ jobs:
          node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm install
-      - name: linting typescript project
-        run: npm run lint-ts
+      - name: linting eslint project
+        run: npm run lint-es
         if: always()
       - name: linting styles project
         run: npm run lint-style
