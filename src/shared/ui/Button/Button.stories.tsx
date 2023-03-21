@@ -108,3 +108,18 @@ SquareXL.args = {
   square: true,
   size: ButtonSizeEnum.XL,
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  children: 'Button',
+  theme: ButtonThemeEnum.OUTLINE,
+  disabled: true,
+};
+
+export const DisabledDark = Template.bind({});
+DisabledDark.args = {
+  children: 'Button',
+  theme: ButtonThemeEnum.OUTLINE,
+  disabled: true,
+};
+DisabledDark.decorators = [ThemeDecorator(ThemeEnum.DARK)];
