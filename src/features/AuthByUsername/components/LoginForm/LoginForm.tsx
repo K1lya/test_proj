@@ -6,31 +6,49 @@ import { Input } from 'shared/ui/Input/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, TextThemeEnum } from 'shared/ui/Text/Text';
 import {
+  ReducerList,
+  useDynamicReducer,
+} from '../../../../shared/lib/hooks/useDynamicReducer/useDynamicReducer';
+import {
   loginByUsernameThunk,
 } from '../../model/sevices/loginByUsername/loginByUsernameThunk';
-import { loginActions } from '../../model/slice/loginSlice';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 import {
-  selectLoginState,
-} from '../../model/selectors/selectLoginState/selectLoginState';
+  selectLoginUsername,
+} from '../../model/selectors/selectLoginUsername/selectLoginUsername';
+import {
+  selectLoginPassword,
+} from '../../model/selectors/selectLoginPassword/selectLoginPassword';
+import {
+  selectLoginError,
+} from '../../model/selectors/selectLoginError/selectLoginError';
+import {
+  selectLoginIsLoading,
+} from '../../model/selectors/selectLoginIsLodaing/selectLoginIsLoading';
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string;
 }
 
-export const LoginForm = memo((props: LoginFormProps) => {
+const initialReducers: ReducerList = {
+  loginForm: loginReducer,
+};
+
+const LoginForm = memo((props: LoginFormProps) => {
   // consts
   const { className } = props;
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
+  // Hooks
+  useDynamicReducer(initialReducers, true);
+
   // Selectors
-  const {
-    username,
-    password,
-    error,
-    isLoading,
-  } = useSelector(selectLoginState);
+  const username = useSelector(selectLoginUsername);
+  const password = useSelector(selectLoginPassword);
+  const error = useSelector(selectLoginError);
+  const isLoading = useSelector(selectLoginIsLoading);
 
   // Handlers
   const onChangeUsernameHandler = useCallback((value: string) => {
@@ -78,3 +96,5 @@ export const LoginForm = memo((props: LoginFormProps) => {
     </div>
   );
 });
+
+export default LoginForm;

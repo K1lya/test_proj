@@ -10,7 +10,7 @@
     "build-prod": "webpack --env mode=production",
     "build-dev": "webpack --env mode=development",
     "build-storybook": "build-storybook -c ./config/storybook",
-    "lint-ts": "tsc --noEmit --incremental --preserveWatchOutput --pretty",
+    "lint-ts": "tsc --noEmit --preserveWatchOutput --pretty",
     "lint-es": "eslint \"**/*.{ts,tsx}\"",
     "lint-style": "npx stylelint \"**/*.scss\"",
     "lint-ts-fix": "eslint \"**/*.{ts,tsx}\" --fix",

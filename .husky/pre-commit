@@ -3,6 +3,7 @@
 
 npm run build-prod
 npm run lint-es
+npm run lint-ts
 npm run lint-style
 npm run test-unit
 npm run test-ui
