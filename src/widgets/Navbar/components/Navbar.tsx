@@ -1,4 +1,6 @@
-import { FC, useCallback, useState } from 'react';
+import {
+  FC, memo, useCallback, useState,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonThemeEnum } from 'shared/ui/Button/Button';
@@ -11,7 +13,7 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar: FC<NavbarProps> = (props) => {
+export const Navbar: FC<NavbarProps> = memo((props) => {
   // consts
   const { className } = props;
   const dispatch = useDispatch();
@@ -69,4 +71,4 @@ export const Navbar: FC<NavbarProps> = (props) => {
       )}
     </div>
   );
-};
+});

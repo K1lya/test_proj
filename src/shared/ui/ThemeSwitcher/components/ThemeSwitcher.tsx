@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeEnum, useTheme } from 'app/providers/ThemeProvider';
 import DarkIcon from 'shared/assets/icons/DarkTheme.svg';
@@ -10,8 +10,9 @@ interface ThemeSwitcherProps {
   className?: string;
 }
 
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
+export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo((props) => {
   // consts
+  // eslint-disable-next-line react/prop-types
   const { className } = props;
   // States
   const { theme, toggleTheme } = useTheme();
@@ -36,4 +37,4 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
         )}
     </Button>
   );
-};
+});

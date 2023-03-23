@@ -1,10 +1,11 @@
-import { memo, useCallback } from 'react';
+import { FC, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonThemeEnum } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Text, TextThemeEnum } from 'shared/ui/Text/Text';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   ReducerList,
   useDynamicReducer,
@@ -29,17 +30,18 @@ import {
 
 export interface LoginFormProps {
   className?: string;
-}
+  onSuccess?: () => void;
+ }
 
 const initialReducers: ReducerList = {
   loginForm: loginReducer,
 };
 
-const LoginForm = memo((props: LoginFormProps) => {
+const LoginForm: FC<LoginFormProps> = memo((props) => {
   // consts
-  const { className } = props;
+  const { className, onSuccess } = props;
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   // Hooks
   useDynamicReducer(initialReducers, true);
@@ -59,9 +61,13 @@ const LoginForm = memo((props: LoginFormProps) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
-  const onClickButtonHandler = useCallback(() => {
-    dispatch(loginByUsernameThunk({ username, password }));
-  }, [dispatch, password, username]);
+  const onClickButtonHandler = useCallback(async () => {
+    const result = await dispatch(loginByUsernameThunk({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+  }, [dispatch, password, username, onSuccess]);
+
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
       <Text title={t('Форма авторизации')} />

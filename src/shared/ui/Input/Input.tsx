@@ -1,4 +1,5 @@
 import React, {
+  FC,
   InputHTMLAttributes, memo, SyntheticEvent, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -9,12 +10,13 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 interface InputProps extends HTMLInputProps{
   className?: string;
   value?: string;
+  // eslint-disable-next-line no-unused-vars
   onChange?: (value: string) => void;
   title?: string;
   autofocus?: boolean;
 }
 
-export const Input = memo((props: InputProps) => {
+export const Input: FC<InputProps> = memo((props) => {
   // consts
   const {
     className,
@@ -68,6 +70,7 @@ export const Input = memo((props: InputProps) => {
       )}
       <div className={cls.caretWrapper}>
         <input
+          ref={ref}
           className={cls.input}
           type={type}
           value={value}

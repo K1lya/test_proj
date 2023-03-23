@@ -4,6 +4,8 @@
   background: var(--inverted-bg-color);
   position: relative;
   transition: width 0.3s;
+  display: flex;
+  justify-content: center;
 }
 
 .switchers {
@@ -28,23 +30,7 @@
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.item {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.link {
-  margin-left: 10px;
-  opacity: 1;
-  transition: opacity 0.2s step-end;
-}
-
-.icon {
-  fill: var(--inverted-primary-color);
+  align-items: start;
 }
 
 .collapsed {

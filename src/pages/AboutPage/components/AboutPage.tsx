@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 
-function AboutPage() {
+const AboutPage = memo(() => {
   const { t } = useTranslation('about');
   return (
     <div>
       {t('О Сайте')}
     </div>
   );
-}
+});
 
 export default AboutPage;

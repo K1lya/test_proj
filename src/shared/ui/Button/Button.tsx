@@ -1,20 +1,27 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export enum ButtonThemeEnum {
   // eslint-disable-next-line no-unused-vars
   CLEAR = 'clear',
+  // eslint-disable-next-line no-unused-vars
   CLEAR_INVERTED = 'clearInverted',
+  // eslint-disable-next-line no-unused-vars
   OUTLINE = 'outline',
+  // eslint-disable-next-line no-unused-vars
   BACKGROUND = 'background',
+  // eslint-disable-next-line no-unused-vars
   BACKGROUND_INVERTED = 'backgroundInverted'
 
 }
 
 export enum ButtonSizeEnum {
+  // eslint-disable-next-line no-unused-vars
   M = 'size_m',
+  // eslint-disable-next-line no-unused-vars
   L = 'size_l',
+  // eslint-disable-next-line no-unused-vars
   XL = 'size_xl',
 
 }
@@ -27,7 +34,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
   disabled?: boolean;
 }
 
-export const Button: FC<ButtonProps> = (props) => {
+export const Button: FC<ButtonProps> = memo((props) => {
   // consts
   const {
     className,
@@ -54,4 +61,4 @@ export const Button: FC<ButtonProps> = (props) => {
       {children}
     </button>
   );
-};
+});

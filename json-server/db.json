@@ -25,6 +25,15 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Neo",
+    "lastname": "Andersen",
+    "age": 22,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://assets.mycast.io/actor_images/actor-keanu-reeves-197919_large.jpg?1618071949"
+  }
 }
 

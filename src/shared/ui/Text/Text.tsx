@@ -1,9 +1,11 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
 
 export enum TextThemeEnum {
+  // eslint-disable-next-line no-unused-vars
   PRIMARY = 'primary',
+  // eslint-disable-next-line no-unused-vars
   ERROR = 'error',
 }
 
@@ -13,7 +15,7 @@ interface TextProps {
   theme?: TextThemeEnum;
 }
 
-export const Text: FC<TextProps> = (props) => {
+export const Text: FC<TextProps> = memo((props) => {
   // consts
   const {
     className,
@@ -27,4 +29,4 @@ export const Text: FC<TextProps> = (props) => {
       {children && <p className={cls.text}>{children}</p>}
     </div>
   );
-};
+});
