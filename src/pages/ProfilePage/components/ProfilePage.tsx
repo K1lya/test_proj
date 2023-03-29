@@ -1,10 +1,10 @@
-import { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { FC, memo, useEffect } from 'react';
 import {
   ReducerList,
   useDynamicReducer,
 } from 'shared/lib/hooks/useDynamicReducer/useDynamicReducer';
-import { profileReducer } from 'entities/Profile';
+import { ProfileCard, profileDataThunk, profileReducer } from 'entities/Profile';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 // import cls from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
@@ -17,14 +17,19 @@ const initialReducers: ReducerList = {
 
 const ProfilePage: FC<ProfilePageProps> = memo((props) => {
   // consts
-  const { className } = props;
+  const dispatch = useAppDispatch();
 
   // Hooks
-  useDynamicReducer(initialReducers, true);
+  useDynamicReducer(initialReducers);
+
+  // Effects
+  useEffect(() => {
+    dispatch(profileDataThunk());
+  }, [dispatch]);
 
   return (
-    <div className={classNames('', {}, [className])}>
-      1
+    <div>
+      <ProfileCard />
     </div>
   );
 });

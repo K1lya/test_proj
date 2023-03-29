@@ -5,10 +5,9 @@ import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
 import { Reducer } from '@reduxjs/toolkit';
 
 export type ReducerList = {
+  // eslint-disable-next-line no-unused-vars
   [key in StateSchemaKey]?: Reducer;
 }
-
-type ReducerListEntry = [StateSchemaKey, Reducer]
 
 export const useDynamicReducer = (
   reducers: ReducerList,
@@ -19,15 +18,15 @@ export const useDynamicReducer = (
   const dispatch = useDispatch();
 
   useEffect(() => {
-    Object.entries(reducers).forEach(([key, reducer]: ReducerListEntry) => {
-      store.reducerManager.add(key, reducer);
+    Object.entries(reducers).forEach(([key, reducer]) => {
+      store.reducerManager.add(key as StateSchemaKey, reducer);
       dispatch({ type: `@INIT ${key} reducer` });
     });
 
     return () => {
       if (removeAfterUnmount) {
-        Object.entries(reducers).forEach(([key]: ReducerListEntry) => {
-          store.reducerManager.remove(key);
+        Object.entries(reducers).forEach(([key]) => {
+          store.reducerManager.remove(key as StateSchemaKey);
           dispatch({ type: `@REMOVE ${key} reducer` });
         });
       }

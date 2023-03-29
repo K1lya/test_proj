@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
-import { Text } from './Text';
+import { Text, TextThemeEnum } from './Text';
 
 export default {
   title: 'shared/Text',
@@ -41,13 +41,13 @@ export const Error = Template.bind({});
 Error.args = {
   title: 'Asdasd asd a asd',
   children: 'Asdasd asd a asd ddddddasdqd sgv dfg dfgggg dfggdfg',
-  theme: 'error',
+  theme: TextThemeEnum.ERROR,
 };
 
 export const ErrorDark = Template.bind({});
 ErrorDark.args = {
   title: 'Asdasd asd a asd',
   children: 'Asdasd asd a asd ddddddasdqd sgv dfg dfgggg dfggdfg',
-  theme: 'error',
+  theme: TextThemeEnum.ERROR,
 };
 ErrorDark.decorators = [ThemeDecorator(ThemeEnum.DARK)];

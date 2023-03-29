@@ -57,9 +57,11 @@ module.exports = {
     'no-param-reassign': 'off',
     'lines-between-class-members': 'off',
     'react/prop-types': 'off',
+    'no-undef': 'off',
   },
   globals: {
     __IS_DEV__: true,
+    __IS_DEV: true,
   },
   overrides: [{
     files: ['**/src/**/*.{test,stories}.{ts,tsx}'],

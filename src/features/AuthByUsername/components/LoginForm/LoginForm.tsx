@@ -9,7 +9,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   ReducerList,
   useDynamicReducer,
-} from '../../../../shared/lib/hooks/useDynamicReducer/useDynamicReducer';
+} from 'shared/lib/hooks/useDynamicReducer/useDynamicReducer';
 import {
   loginByUsernameThunk,
 } from '../../model/sevices/loginByUsername/loginByUsernameThunk';
@@ -30,7 +30,7 @@ import {
 
 export interface LoginFormProps {
   className?: string;
-  onSuccess?: () => void;
+  onSuccess: () => void;
  }
 
 const initialReducers: ReducerList = {

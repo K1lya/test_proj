@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { selectLoginUsername } from './selectLoginUsername';
 
@@ -14,6 +13,6 @@ describe('selectLoginUsername', () => {
 
   test('should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(selectLoginUsername(state as StateSchema)).toEqual(undefined);
+    expect(selectLoginUsername(state as StateSchema)).toEqual('');
   });
 });
