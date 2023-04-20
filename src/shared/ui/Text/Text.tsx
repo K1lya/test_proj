@@ -9,10 +9,17 @@ export enum TextThemeEnum {
   ERROR = 'error',
 }
 
+export enum TextAlignEnum {
+  RIGHT = 'right',
+  LEFT = 'left',
+  CENTER = 'center',
+}
+
 interface TextProps {
   className?: string;
   title?: string;
   theme?: TextThemeEnum;
+  align?: TextAlignEnum;
 }
 
 export const Text: FC<TextProps> = memo((props) => {
@@ -22,9 +29,10 @@ export const Text: FC<TextProps> = memo((props) => {
     children,
     title,
     theme = TextThemeEnum.PRIMARY,
+    align = TextAlignEnum.LEFT,
   } = props;
   return (
-    <div className={classNames('', {}, [className, cls[theme]])}>
+    <div className={classNames('', {}, [className, cls[theme], cls[align]])}>
       {title && <p className={cls.title}>{title}</p>}
       {children && <p className={cls.text}>{children}</p>}
     </div>

@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonThemeEnum } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserData, userActions } from 'entities/User';
+import { selectUserAuthData, userActions } from 'entities/User';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -19,7 +19,7 @@ export const Navbar: FC<NavbarProps> = memo((props) => {
   const dispatch = useDispatch();
 
   // Selectors
-  const user = useSelector(selectUserData);
+  const user = useSelector(selectUserAuthData);
 
   // States
   const [isModalOpen, setIsModalOpen] = useState(false);

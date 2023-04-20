@@ -3,7 +3,8 @@ import React from 'react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { CountryEnum, CurrencyEnum } from 'shared/types/enums';
+import { CurrencyEnum } from 'entities/Currency/model/types/Currency';
+import { CountryEnum } from 'entities/Country/model/types/Country';
 import ProfilePage from './ProfilePage';
 
 export default {

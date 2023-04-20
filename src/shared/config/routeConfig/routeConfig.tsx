@@ -4,6 +4,10 @@ import { AboutPage } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 
+type AppRoutesProps = RouteProps & {
+  authOnly?: boolean;
+}
+
 export enum AppRoutesEnum {
   // eslint-disable-next-line no-unused-vars
   MAIN = 'main',
@@ -24,7 +28,7 @@ export const RoutePaths: Record<AppRoutesEnum, string> = {
   [AppRoutesEnum.NOT_FOUND]: '*',
 };
 
-export const routeConfig: Record<AppRoutesEnum, RouteProps> = {
+export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   [AppRoutesEnum.MAIN]: {
     path: RoutePaths.main,
     element: <MainPage />,
@@ -36,6 +40,7 @@ export const routeConfig: Record<AppRoutesEnum, RouteProps> = {
   [AppRoutesEnum.PROFILE]: {
     path: RoutePaths.profile,
     element: <ProfilePage />,
+    authOnly: true,
   },
   // Last
   [AppRoutesEnum.NOT_FOUND]: {

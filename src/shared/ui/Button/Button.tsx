@@ -10,6 +10,8 @@ export enum ButtonThemeEnum {
   // eslint-disable-next-line no-unused-vars
   OUTLINE = 'outline',
   // eslint-disable-next-line no-unused-vars
+  OUTLINE_RED = 'outlineRed',
+  // eslint-disable-next-line no-unused-vars
   BACKGROUND = 'background',
   // eslint-disable-next-line no-unused-vars
   BACKGROUND_INVERTED = 'backgroundInverted'
@@ -26,7 +28,7 @@ export enum ButtonSizeEnum {
 
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   theme?: ButtonThemeEnum;
   square?: boolean;

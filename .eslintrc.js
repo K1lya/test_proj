@@ -46,6 +46,7 @@ module.exports = {
         ignoreAttribute: [
           'data-testid',
           'to',
+          'alt',
         ],
       },
     ],

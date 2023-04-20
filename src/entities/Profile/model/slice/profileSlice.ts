@@ -1,5 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IProfile, profileDataThunk } from 'entities/Profile';
+import { IProfile, fetchProfileDataThunk } from 'entities/Profile';
+import {
+  updateProfileDataThunk,
+} from '../services/updateProfileDataThunk/updateProfileDataThunk';
 import { ProfileSchema } from '../types/ProfileSchema';
 
 const initialState: ProfileSchema = {
@@ -12,21 +15,53 @@ const initialState: ProfileSchema = {
 export const profileSlice = createSlice({
   name: 'profile',
   initialState,
-  reducers: {},
+  reducers: {
+    setReadonly(state, { payload }: PayloadAction<boolean>) {
+      state.readonly = payload;
+    },
+    setProfile(state, { payload }: PayloadAction<IProfile>) {
+      state.form = {
+        ...state.form,
+        ...payload,
+      };
+    },
+    cancelEdit(state) {
+      state.readonly = true;
+      state.form = state.data;
+    },
+  },
   extraReducers: (builder) => {
     builder
-      .addCase(profileDataThunk.pending, (state) => {
+      .addCase(fetchProfileDataThunk.pending, (state) => {
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(profileDataThunk.fulfilled, (
+      .addCase(fetchProfileDataThunk.fulfilled, (
         state,
         { payload }: PayloadAction<IProfile>,
       ) => {
         state.isLoading = false;
         state.data = payload;
+        state.form = payload;
       })
-      .addCase(profileDataThunk.rejected, (state, { payload }) => {
+      .addCase(fetchProfileDataThunk.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
+      .addCase(updateProfileDataThunk.pending, (state) => {
+        state.error = undefined;
+        state.isLoading = true;
+      })
+      .addCase(updateProfileDataThunk.fulfilled, (
+        state,
+        { payload }: PayloadAction<IProfile>,
+      ) => {
+        state.isLoading = false;
+        state.data = payload;
+        state.form = payload;
+        state.readonly = true;
+      })
+      .addCase(updateProfileDataThunk.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
       });

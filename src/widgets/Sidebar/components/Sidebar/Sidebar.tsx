@@ -46,6 +46,7 @@ export const Sidebar: FC<SidebarProps> = memo((props) => {
             Icon={item.Icon}
             text={item.text}
             path={item.path}
+            authOnly={item.authOnly}
           />
         ))}
       </div>

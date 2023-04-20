@@ -29,11 +29,10 @@
     "first": "Neo",
     "lastname": "Andersen",
     "age": 22,
-    "currency": "RUB",
-    "country": "Russia",
+    "currency": "USD",
+    "country": "Kazakhstan",
     "city": "Moscow",
     "username": "admin",
     "avatar": "https://assets.mycast.io/actor_images/actor-keanu-reeves-197919_large.jpg?1618071949"
   }
 }
-

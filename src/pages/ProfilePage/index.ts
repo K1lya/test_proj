@@ -1,1 +1,3 @@
-export { ProfilePageAsync as ProfilePage } from './components/ProfilePage.async';
+export {
+  ProfilePageAsync as ProfilePage,
+} from './components/ProfilePage/ProfilePage.async';
