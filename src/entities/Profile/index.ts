@@ -17,4 +17,9 @@ export {
 export {
   selectProfileReadonly,
 } from './model/selectors/selectProfileReadonly/selectProfileReadonly';
-export { selectProfileForm } from './model/selectors/selectProfileForm/selectProfileForm';
+export {
+  selectProfileForm,
+} from './model/selectors/selectProfileForm/selectProfileForm';
+export {
+  selectProfileValidateErrors,
+} from './model/selectors/selectProfileValidateErrors/selectProfileValidateErrors';

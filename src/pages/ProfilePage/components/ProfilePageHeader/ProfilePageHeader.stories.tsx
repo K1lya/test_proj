@@ -3,6 +3,7 @@ import React from 'react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
 import { ProfilePageHeader } from './ProfilePageHeader';
+import { StoreDecorator } from '../../../../shared/config/storybook/decorators/StoreDecorator';
 
 export default {
   title: 'pages/ProfilePageHeader',
@@ -16,4 +17,11 @@ const Template: ComponentStory<typeof ProfilePageHeader> = (args) => <ProfilePag
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [ThemeDecorator(ThemeEnum.DARK)];
+Primary.decorators = [
+  ThemeDecorator(ThemeEnum.DARK),
+  StoreDecorator({
+    profile: {
+      readonly: true,
+    },
+  }),
+];
