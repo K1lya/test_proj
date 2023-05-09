@@ -5,6 +5,8 @@ export enum ThemeEnum {
   DARK = 'app_dark_theme',
   // eslint-disable-next-line no-unused-vars
   LIGHT = 'app_light_theme',
+  // eslint-disable-next-line no-unused-vars
+  COLOR = 'app_color_theme',
 }
 
 export interface ThemeContextProps {
