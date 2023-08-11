@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
-import { Text, TextThemeEnum } from './Text';
+import { Text, TextSizeEnum, TextThemeEnum } from './Text';
 
 export default {
   title: 'shared/Text',
@@ -51,3 +51,33 @@ ErrorDark.args = {
   theme: TextThemeEnum.ERROR,
 };
 ErrorDark.decorators = [ThemeDecorator(ThemeEnum.DARK)];
+
+export const TextSizeM = Template.bind({});
+TextSizeM.args = {
+  title: 'Asdasd asd a asd',
+  children: 'Asdasd asd a asd ddddddasdqd sgv dfg dfgggg dfggdfg',
+  size: TextSizeEnum.M,
+};
+
+export const TextSizeMDark = Template.bind({});
+TextSizeMDark.args = {
+  title: 'Asdasd asd a asd',
+  children: 'Asdasd asd a asd ddddddasdqd sgv dfg dfgggg dfggdfg',
+  size: TextSizeEnum.M,
+};
+TextSizeMDark.decorators = [ThemeDecorator(ThemeEnum.DARK)];
+
+export const TextSizeL = Template.bind({});
+TextSizeL.args = {
+  title: 'Asdasd asd a asd',
+  children: 'Asdasd asd a asd ddddddasdqd sgv dfg dfgggg dfggdfg',
+  size: TextSizeEnum.L,
+};
+
+export const TextSizeLDark = Template.bind({});
+TextSizeLDark.args = {
+  title: 'Asdasd asd a asd',
+  children: 'Asdasd asd a asd ddddddasdqd sgv dfg dfgggg dfggdfg',
+  size: TextSizeEnum.L,
+};
+TextSizeLDark.decorators = [ThemeDecorator(ThemeEnum.DARK)];
