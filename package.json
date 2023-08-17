@@ -7,7 +7,7 @@
     "start": "webpack serve --env port=3000",
     "start-server": "node ./json-server/index.js",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
-    "start-dev": "concurrently \"npm start\" \"npm run start-server\" \"npm run storybook\"",
+    "dev": "concurrently \"npm start\" \"npm run start-server\" \"npm run storybook\"",
     "build-prod": "webpack --env mode=production",
     "build-dev": "webpack --env mode=development",
     "build-storybook": "build-storybook -c ./config/storybook",

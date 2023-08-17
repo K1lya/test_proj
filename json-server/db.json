@@ -109,7 +109,8 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://assets.mycast.io/actor_images/actor-keanu-reeves-197919_large.jpg?1618071949"
     },
     {
       "id": "2",
