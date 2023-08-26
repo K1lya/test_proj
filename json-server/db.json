@@ -102,6 +102,30 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "12333",
+      "id": "q728-lk"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Сам ты 123",
+      "id": "J2E4ggj"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hello world",
+      "id": "CoOJw9m"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "dd",
+      "id": "Wk-F_cO"
     }
   ],
   "users": [
@@ -120,14 +144,28 @@
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
-  "profile": {
-    "first": "Neo",
-    "lastname": "Andersen",
-    "age": 22,
-    "currency": "USD",
-    "country": "Kazakhstan",
-    "city": "New-York",
-    "username": "admin",
-    "avatar": "https://assets.mycast.io/actor_images/actor-keanu-reeves-197919_large.jpg?1618071949"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Neo",
+      "lastname": "Andersen",
+      "age": 22,
+      "currency": "USD",
+      "country": "Kazakhstan",
+      "city": "New-York",
+      "username": "admin",
+      "avatar": "https://assets.mycast.io/actor_images/actor-keanu-reeves-197919_large.jpg?1618071949"
+    },
+    {
+      "id": "2",
+      "first": "Sergey",
+      "lastname": "Sergeev",
+      "age": 22,
+      "currency": "USD",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "Formik",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    }
+  ]
 }

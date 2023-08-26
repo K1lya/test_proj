@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
@@ -9,9 +9,13 @@ import { ReducerList, useDynamicReducer } from 'shared/lib/hooks/useDynamicReduc
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AddNewComment } from 'features/AddNewComment';
 import {
   fetchCommentsByArticleIdThunk,
-} from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleIdThunk/fetchCommentsByArticleIdThunk';
+} from '../../model/services/fetchCommentsByArticleIdThunk/fetchCommentsByArticleIdThunk';
+import {
+  addCommentForArticleThunk,
+} from '../../model/services/addCommentForArticle/addCommentForArticleThunk';
 import { selectArticleCommentsIsLoading } from '../../model/selectors/comments';
 import cls from './ArticleDetailsPage.module.scss';
 import { articleDetailsCommentsReducer, selectArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
@@ -39,6 +43,10 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     dispatch(fetchCommentsByArticleIdThunk(id));
   });
 
+  const onSendComment = useCallback((text: string) => {
+    dispatch(addCommentForArticleThunk(text));
+  }, [dispatch]);
+
   if (!id) {
     return (
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
@@ -53,6 +61,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         className={cls.commentTitle}
         title={t('Комментарии')}
       />
+      <AddNewComment onSendComment={onSendComment} />
       <CommentList
         isLoading={commentsIsLoading}
         comments={comments}

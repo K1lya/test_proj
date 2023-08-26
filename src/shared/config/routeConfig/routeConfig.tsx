@@ -29,7 +29,7 @@ export enum AppRoutesEnum {
 export const RoutePaths: Record<AppRoutesEnum, string> = {
   [AppRoutesEnum.MAIN]: '/',
   [AppRoutesEnum.ABOUT]: '/about',
-  [AppRoutesEnum.PROFILE]: '/profile',
+  [AppRoutesEnum.PROFILE]: '/profile/', // + id
   [AppRoutesEnum.ARTICLES]: '/articles',
   [AppRoutesEnum.ARTICLE_DETAILS]: '/articles/', // + :id
   // Последний. Отрабатывает если ни один до этого не отработал
@@ -46,7 +46,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     element: <AboutPage />,
   },
   [AppRoutesEnum.PROFILE]: {
-    path: RoutePaths.profile,
+    path: `${RoutePaths.profile}:id`,
     element: <ProfilePage />,
     authOnly: true,
   },

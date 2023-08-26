@@ -4,15 +4,15 @@ import { IProfile } from '../../types/ProfileSchema';
 
 export const fetchProfileDataThunk = createAsyncThunk<
   IProfile,
-  void,
+  string,
   ThunkConfig<string>
   >(
     'profile/ProfileData',
-    async (_, thunkAPI) => {
+    async (profileId, thunkAPI) => {
       const { extra, rejectWithValue } = thunkAPI;
 
       try {
-        const response = await extra.api.get<IProfile>('/profile');
+        const response = await extra.api.get<IProfile>(`/profile/${profileId}`);
 
         if (!response.data) {
           throw new Error();

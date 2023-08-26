@@ -23,6 +23,8 @@ import { ValueOf } from 'shared/types/types';
 import { Text, TextThemeEnum } from 'shared/ui/Text/Text';
 import { ValidateProfileErrorsEnum } from 'entities/Profile/model/types/ProfileSchema';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -37,6 +39,7 @@ const ProfilePage: FC<ProfilePageProps> = memo(() => {
   // consts
   const dispatch = useAppDispatch();
   const { t } = useTranslation('profile');
+  const { id } = useParams<{id: string}>();
 
   // Selectors
   const formData = useSelector(selectProfileForm);
@@ -58,11 +61,11 @@ const ProfilePage: FC<ProfilePageProps> = memo(() => {
   useDynamicReducer(initialReducers);
 
   // Effects
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileDataThunk());
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileDataThunk(id));
     }
-  }, [dispatch]);
+  });
 
   // Handlers
   // eslint-disable-next-line max-len

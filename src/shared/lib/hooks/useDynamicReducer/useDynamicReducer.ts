@@ -11,7 +11,7 @@ export type ReducerList = {
 
 export const useDynamicReducer = (
   reducers: ReducerList,
-  removeAfterUnmount?: boolean,
+  removeAfterUnmount: boolean = true,
 ) => {
   // consts
   const store = useStore() as ReduxStoreWithManager;
