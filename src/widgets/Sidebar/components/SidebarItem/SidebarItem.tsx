@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { selectUserAuthData } from 'entities/User';
+import { ISidebarItem } from 'widgets/Sidebar/model/types/sidebar';
 import cls from './SidebarItem.module.scss';
-import { ISidebarItem } from '../../model/types/items';
 
 interface SidebarItemProps extends ISidebarItem{
   isCollapsed: boolean;
