@@ -5,9 +5,10 @@ import { ReducerList, useDynamicReducer } from 'shared/lib/hooks/useDynamicReduc
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
+import { Page } from 'shared/ui/Page/Page';
+import { fetchNextArticlePageThunk } from 'pages/ArticlesPage/model/services/fetchNextArticlePageThunk';
 import { fetchArticlesListThunk } from '../../model/services/fetchArticlesListThunk';
 import {
-  selectArticlesPageError,
   selectArticlesPageIsLoading,
   selectArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
@@ -26,25 +27,30 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   // consts
   const { className } = props;
   const dispatch = useAppDispatch();
-  // const { t } = useTranslation('article');
   useDynamicReducer(reducers);
 
   const articles = useSelector(getArticles.selectAll);
   const view = useSelector(selectArticlesPageView);
-  const error = useSelector(selectArticlesPageError);
   const isLoading = useSelector(selectArticlesPageIsLoading);
 
   useInitialEffect(() => {
-    dispatch(fetchArticlesListThunk());
     dispatch(articlesPageActions.initState());
+    dispatch(fetchArticlesListThunk({ page: 1 }));
   });
 
   const onViewHandler = useCallback((newView: ArticleViewEnum) => {
     dispatch(articlesPageActions.setView(newView));
   }, [dispatch]);
 
+  const nextArticlesHandler = useCallback(() => {
+    dispatch(fetchNextArticlePageThunk());
+  }, [dispatch]);
+
   return (
-    <div className={classNames(cls.ArticlesPage, {}, [className])}>
+    <Page
+      onScrollEnd={nextArticlesHandler}
+      className={classNames(cls.ArticlesPage, {}, [className])}
+    >
       <ArticleViewSwitcher
         view={view}
         onViewClick={onViewHandler}
@@ -54,7 +60,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
         view={view}
         articles={articles}
       />
-    </div>
+    </Page>
   );
 };
 

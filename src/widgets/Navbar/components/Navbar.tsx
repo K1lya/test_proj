@@ -42,7 +42,7 @@ export const Navbar: FC<NavbarProps> = memo((props) => {
 
   if (user) {
     return (
-      <div className={classNames(cls.Navbar, {}, [className])}>
+      <header className={classNames(cls.Navbar, {}, [className])}>
         <Button
           theme={ButtonThemeEnum.CLEAR_INVERTED}
           className={cls.links}
@@ -50,12 +50,12 @@ export const Navbar: FC<NavbarProps> = memo((props) => {
         >
           {t('Выйти')}
         </Button>
-      </div>
+      </header>
     );
   }
 
   return (
-    <div className={classNames(cls.Navbar, {}, [className])}>
+    <header className={classNames(cls.Navbar, {}, [className])}>
       <Button
         theme={ButtonThemeEnum.CLEAR_INVERTED}
         className={cls.links}
@@ -69,6 +69,6 @@ export const Navbar: FC<NavbarProps> = memo((props) => {
           onClose={onCloseModalHandler}
         />
       )}
-    </div>
+    </header>
   );
 });

@@ -21,21 +21,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
     view = ArticleViewEnum.GRID,
   } = props;
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-        {new Array(view === ArticleViewEnum.GRID ? 9 : 3)
-          .fill(0)
-          // eslint-disable-next-line react/no-array-index-key
-          .map((_, index) => (
-            <ArticleListItemSkeleton
-              key={index}
-              view={view}
-            />
-          ))}
-      </div>
-    );
-  }
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {articles.length > 0
@@ -47,6 +32,15 @@ export const ArticleList = memo((props: ArticleListProps) => {
           />
         ))
         : null}
+      {isLoading && new Array(view === ArticleViewEnum.GRID ? 9 : 3)
+        .fill(0)
+        // eslint-disable-next-line react/no-array-index-key
+        .map((_, index) => (
+          <ArticleListItemSkeleton
+            key={index}
+            view={view}
+          />
+        ))}
     </div>
   );
 });

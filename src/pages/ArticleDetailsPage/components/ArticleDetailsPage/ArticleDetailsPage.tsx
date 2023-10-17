@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddNewComment } from 'features/AddNewComment';
 import { Button } from 'shared/ui/Button/Button';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import {
   fetchCommentsByArticleIdThunk,
 } from '../../model/services/fetchCommentsByArticleIdThunk/fetchCommentsByArticleIdThunk';
@@ -56,13 +57,13 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
   if (!id) {
     return (
-      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         {t('Статья не найдена!')}
-      </div>
+      </Page>
     );
   }
   return (
-    <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+    <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
       <Button onClick={backToArticlesHandler}>{t('Назад')}</Button>
       <ArticleDetails id={id} />
       <Text
@@ -74,7 +75,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         isLoading={commentsIsLoading}
         comments={comments}
       />
-    </div>
+    </Page>
   );
 };
 

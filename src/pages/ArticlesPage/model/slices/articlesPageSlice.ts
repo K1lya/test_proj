@@ -21,14 +21,21 @@ export const articlesPageSlice = createSlice({
     view: ArticleViewEnum.GRID,
     ids: [],
     entities: {},
+    page: 1,
+    hasMore: true,
   }),
   reducers: {
     setView: (state, action:PayloadAction<ArticleViewEnum>) => {
       state.view = action.payload;
       localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload);
     },
+    setPage: (state, action:PayloadAction<number>) => {
+      state.page = action.payload;
+    },
     initState: (state) => {
-      state.view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleViewEnum;
+      const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleViewEnum;
+      state.view = view;
+      state.limit = ArticleViewEnum.LIST ? 4 : 9;
     },
   },
   extraReducers: (builder) => {
@@ -42,7 +49,8 @@ export const articlesPageSlice = createSlice({
         { payload }: PayloadAction<IArticle[]>,
       ) => {
         state.isLoading = false;
-        articlesAdapter.setAll(state, payload);
+        articlesAdapter.addMany(state, payload);
+        state.hasMore = payload.length > 0;
       })
       .addCase(fetchArticlesListThunk.rejected, (state, { payload }) => {
         state.isLoading = false;
