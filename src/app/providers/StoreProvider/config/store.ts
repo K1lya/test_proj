@@ -4,17 +4,12 @@ import {
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { appAxios } from 'shared/api/api';
-import { NavigateOptions } from 'react-router';
-import { To } from 'react-router-dom';
 import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
 export function createReduxStore(
   initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>,
-  // eslint-disable-next-line no-unused-vars
-  navigate?: (to: To, options?: NavigateOptions) => void,
-
 ) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
@@ -32,7 +27,6 @@ export function createReduxStore(
       thunk: {
         extraArgument: {
           api: appAxios,
-          navigate,
         },
       },
     }),

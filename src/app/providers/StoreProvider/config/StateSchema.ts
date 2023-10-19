@@ -6,8 +6,6 @@ import {
 } from '@reduxjs/toolkit';
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
-import { To } from 'react-router-dom';
-import { NavigateOptions } from 'react-router';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddNewCommentSchema } from 'features/AddNewComment';
@@ -27,6 +25,8 @@ articlesPage?: ArticlesPageSchema;
 
 export type StateSchemaKey = keyof StateSchema;
 
+export type MountedReducersType = OptionalRecord<StateSchemaKey, boolean>
+
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>;
   // eslint-disable-next-line no-unused-vars
@@ -35,7 +35,7 @@ export interface ReducerManager {
   add: (key: StateSchemaKey, reducer: Reducer) => void;
   // eslint-disable-next-line no-unused-vars
   remove: (key: StateSchemaKey) => void;
-
+  getMountedReducers: () => MountedReducersType;
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
@@ -44,8 +44,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
 
 export interface ThunkExtraArgs {
   api: AxiosInstance,
-  // eslint-disable-next-line no-unused-vars
-  navigate?: (to: To, options?: NavigateOptions) => void,
 }
 
 export interface ThunkConfig<T> {

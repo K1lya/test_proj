@@ -11,3 +11,5 @@ export const selectArticlesPageNum = (state: StateSchema) => state.articlesPage?
 export const selectArticlesPageLimit = (state: StateSchema) => state.articlesPage?.limit || 9;
 
 export const selectArticlesPageHasMore = (state: StateSchema) => state.articlesPage?.hasMore;
+
+export const selectArticlesPageInited = (state: StateSchema) => state.articlesPage?._inited;

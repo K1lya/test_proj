@@ -6,12 +6,9 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'shared/ui/Page/Page';
-import { fetchNextArticlePageThunk } from 'pages/ArticlesPage/model/services/fetchNextArticlePageThunk';
-import { fetchArticlesListThunk } from '../../model/services/fetchArticlesListThunk';
-import {
-  selectArticlesPageIsLoading,
-  selectArticlesPageView,
-} from '../../model/selectors/articlesPageSelectors';
+import { fetchNextArticlePageThunk } from '../../model/services/fetchNextArticlePageThunk';
+import { initArticlesPageThunk } from '../../model/services/initArticlesPageThunk';
+import { selectArticlesPageIsLoading, selectArticlesPageView } from '../../model/selectors/articlesPageSelectors';
 import cls from './ArticlesPage.module.scss';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
 
@@ -27,15 +24,14 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   // consts
   const { className } = props;
   const dispatch = useAppDispatch();
-  useDynamicReducer(reducers);
+  useDynamicReducer(reducers, false);
 
   const articles = useSelector(getArticles.selectAll);
   const view = useSelector(selectArticlesPageView);
   const isLoading = useSelector(selectArticlesPageIsLoading);
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState());
-    dispatch(fetchArticlesListThunk({ page: 1 }));
+    dispatch(initArticlesPageThunk());
   });
 
   const onViewHandler = useCallback((newView: ArticleViewEnum) => {
