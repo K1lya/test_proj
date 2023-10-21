@@ -5,7 +5,7 @@ import { ReducerList, useDynamicReducer } from 'shared/lib/hooks/useDynamicReduc
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { fetchNextArticlePageThunk } from '../../model/services/fetchNextArticlePageThunk';
 import { initArticlesPageThunk } from '../../model/services/initArticlesPageThunk';
 import { selectArticlesPageIsLoading, selectArticlesPageView } from '../../model/selectors/articlesPageSelectors';
