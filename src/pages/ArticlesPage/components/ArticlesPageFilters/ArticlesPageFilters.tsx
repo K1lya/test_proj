@@ -80,8 +80,8 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
   const onChangeTypeHandler = useCallback((tab: TabItem) => {
     dispatch(articlesPageActions.setPage(1));
     dispatch(articlesPageActions.setType(tab.value as ArticleTypeEnum));
-    debounceFetchData();
-  }, [debounceFetchData, dispatch]);
+    fetchDataHandler();
+  }, [dispatch, fetchDataHandler]);
 
   return (
     <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
