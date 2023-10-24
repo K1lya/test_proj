@@ -4,13 +4,13 @@ import {
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
 
-export interface ISelectOpton {
+export interface ISelectOption {
   value: string;
   title: string;
 }
 
 interface SelectProps {
-  options?: ISelectOpton[];
+  options?: ISelectOption[];
   value?: string;
   onChange?: (value: string) => void;
   className?: string;

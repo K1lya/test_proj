@@ -1,9 +1,22 @@
 {
+  "'Статьи не найдены'": "Articles not found",
+  "ALL": "ALL",
+  "ECONOMY": "ECONOMY",
+  "IT": "IT",
+  "SCIENCE": "SCIENCE",
   "Комментарии": "Comments",
   "Комментарии отсутствуют": "No Comments",
   "Копировать": "Copy",
   "Назад": "Back",
+  "Поиск": "Search",
   "Произошла ошибка при загрузке статьи": "Loading article error",
+  "Сортировать по": "Sort by",
   "Статья не найдена!": "Article not found!",
-  "Читать далее": "Read..."
+  "Читать далее": "Read...",
+  "возрастанию": "asc",
+  "дате создания": "created date",
+  "количеству просмотров": "number of views",
+  "названию": "name",
+  "по": "by",
+  "убыванию": "desc"
 }

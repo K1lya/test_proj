@@ -1,4 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
+import { ArticleSortFieldEnum, ArticleTypeEnum } from 'entities/Article';
 
 export const selectArticlesPageError = (state: StateSchema) => state.articlesPage?.error;
 
@@ -13,3 +14,11 @@ export const selectArticlesPageLimit = (state: StateSchema) => state.articlesPag
 export const selectArticlesPageHasMore = (state: StateSchema) => state.articlesPage?.hasMore;
 
 export const selectArticlesPageInited = (state: StateSchema) => state.articlesPage?._inited;
+
+export const selectArticlesPageOrder = (state: StateSchema) => state.articlesPage?.order || 'ask';
+
+export const selectArticlesPageSort = (state: StateSchema) => state.articlesPage?.sort || ArticleSortFieldEnum.CREATED;
+
+export const selectArticlesPageSearch = (state: StateSchema) => state.articlesPage?.search ?? '';
+
+export const selectArticlesPageType = (state: StateSchema) => state.articlesPage?.type || ArticleTypeEnum.ALL;

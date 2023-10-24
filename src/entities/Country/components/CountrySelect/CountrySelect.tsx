@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ISelectOpton, Select } from 'shared/ui/Select/Select';
+import { ISelectOption, Select } from 'shared/ui/Select/Select';
 import { useTranslation } from 'react-i18next';
 import { CountryEnum } from '../../model/types/Country';
 
@@ -12,7 +12,7 @@ interface CountrySelectProps {
 }
 
 const countryOptions = Object.entries(CountryEnum)
-  .map(([key]): ISelectOpton => ({ title: key, value: key }));
+  .map(([key]): ISelectOption => ({ title: key, value: key }));
 
 export const CountrySelect: FC<CountrySelectProps> = (props) => {
   // consts

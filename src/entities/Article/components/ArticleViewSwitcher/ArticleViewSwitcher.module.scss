@@ -1,3 +1,9 @@
+.ArticleViewSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .notSelected {
   fill: var(--secondary-color);
 }
