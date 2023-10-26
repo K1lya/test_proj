@@ -47,6 +47,7 @@ module.exports = {
           'data-testid',
           'to',
           'alt',
+          'target',
         ],
       },
     ],

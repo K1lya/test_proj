@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleListItemSkeleton } from 'entities/Article/components/ArticleListItemSkeleton/ArticleListItemSkeleton';
 import { Text } from 'shared/ui/Text/Text';
@@ -12,6 +12,7 @@ interface ArticleListProps {
   articles: IArticle[];
   isLoading?: boolean;
   view?: ArticleViewEnum;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -21,6 +22,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     articles,
     isLoading,
     view = ArticleViewEnum.GRID,
+    target,
   } = props;
   const { t } = useTranslation('article');
 
@@ -40,6 +42,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
             key={article.id}
             article={article}
             view={view}
+            target={target}
           />
         ))
         : null}
